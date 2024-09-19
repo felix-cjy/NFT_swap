@@ -12,3 +12,5 @@ docs/
 
 # Dotenv file
 .env
+AI_answer.md
+src/AI_NFT_swap.sol
