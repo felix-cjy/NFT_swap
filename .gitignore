@@ -14,3 +14,4 @@ docs/
 .env
 AI_answer.md
 src/AI_NFT_swap.sol
+.gitignore
