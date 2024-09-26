@@ -112,15 +112,15 @@ contract NFTswap is IERC721Receiver {
         }
 
         _nft.safeTransferFrom(address(this), msg.sender, _tokenId);
-        payable(_order.owner).transfer(_order.price);
+        // 购买完成,给seller转账,给buyer找钱
+        // payable(_order.owner).transfer(_order.price);
+        (bool success,) = _order.owner.call{value: _order.price}("");
+        require(success, "Transfer failed");
+
         payable(msg.sender).transfer(msg.value - (_order.price));
 
         delete orders[_nftAddr][_tokenId];
 
         emit Purchase(msg.sender, _nftAddr, _tokenId, _order.price);
-    }
-
-    function getOrder(address _nftAddr, uint256 _tokenId) public view returns (Order memory) {
-        return orders[_nftAddr][_tokenId];
     }
 }
