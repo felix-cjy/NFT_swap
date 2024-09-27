@@ -1,19 +1,56 @@
 ## Foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+```bash
+$ forge test --gas-report
+[⠆] Compiling...
+No files changed, compilation skipped
 
-Foundry consists of:
+Ran 4 tests for test/NFTswapTest.t.sol:NFTswapTest
+[PASS] testList() (gas: 261632)
+[PASS] testPurchase() (gas: 353766)
+[PASS] testRevoke() (gas: 307612)
+[PASS] testUpdate() (gas: 297348)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 6.22ms (12.30ms CPU time)
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Ran 1 test for test/NFTswapIntegration.t.sol:NFTswapIntegrationTest
+[PASS] testFullFlow() (gas: 698294)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 8.90ms (5.03ms CPU time)| src/NFTswap.sol:NFTswap contract |                 |        |        |        |
+     |
+|----------------------------------|-----------------|--------|--------|--------|---------|
+| Deployment Cost                  | Deployment Size |        |        |        |
+     |
+| 618040                           | 2647            |        |        |        |
+     |
+| Function Name                    | min             | avg    | median | max    | # calls |
+| list                             | 91462           | 105712 | 108562 | 108562 | 6
+     |
+| orders                           | 787             | 787    | 787    | 787    | 2
+     |
+| purchase                         | 24218           | 63754  | 66385  | 98030  | 4
+     |
+| revoke                           | 62230           | 62230  | 62230  | 62230  | 1
+     |
+| update                           | 24510           | 33058  | 37333  | 37333  | 3
+     |
 
-## Documentation
 
-https://book.getfoundry.sh/
+| test/FLX.sol:FLX contract |                 |       |        |       |         |
+|---------------------------|-----------------|-------|--------|-------|---------|
+| Deployment Cost           | Deployment Size |       |        |       |         |
+| 1081022                   | 4995            |       |        |       |         |
+| Function Name             | min             | avg   | median | max   | # calls |
+| approve                   | 48695           | 48695 | 48695  | 48695 | 6       |
+| getApproved               | 4826            | 4826  | 4826   | 4826  | 6       |
+| mint                      | 76113           | 90363 | 93213  | 93213 | 6       |
+| ownerOf                   | 624             | 1714  | 2624   | 2624  | 11      |
 
-## Usage
+
+
+
+Ran 2 test suites in 31.89ms (15.12ms CPU time): 5 tests passed, 0 failed, 0 skipped
+(5 total tests)
+
+```
 
 ### Build
 
@@ -27,12 +64,6 @@ $ forge build
 $ forge test
 ```
 
-### Format
-
-```shell
-$ forge fmt
-```
-
 ### Gas Snapshots
 
 ```shell
@@ -43,61 +74,4 @@ $ forge snapshot
 
 ```shell
 $ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
-
-## TinTin 训练营
-
-学号 135
-
-【学员手册】https://attractive-spade-1e3.notion.site/3c55c15d535c43f7a236183af40cf76b?pvs=4
-课前学习资料：https://attractive-spade-1e3.notion.site/dff0bb9eaf7645e2b684c99f4e97c3a2?pvs=4
-
-1. 它首先检查是否设置了 `FOUNDRY_BIN` 环境变量。
-2. 如果没有设置，它会尝试在 PATH 中查找 `forge`。
-3. 如果还是找不到，它会使用一个默认路径（`$(HOME)/.foundry/bin`）。
-4. 用户可以通过设置 `FOUNDRY_BIN` 环境变量来指定自定义路径。
-
-使用方法：
-
-1. 对于大多数用户，如果 Foundry 工具在 PATH 中，他们不需要做任何特殊设置就可以使用这个 Makefile。
-
-2. 对于像您这样有自定义安装路径的用户，可以在运行 make 命令之前设置环境变量：
-
-   ```bash
-   export FOUNDRY_BIN=/c/Users/UserName/.foundry/bin
-   make build
-   ```
-
-   或者在同一行中设置：
-
-   ```bash
-   FOUNDRY_BIN=/c/Users/UserName/.foundry/bin make build
-   ```
-
-3. 您可以将这个环境变量设置添加到您的 shell 配置文件中（如 `.bashrc` 或 `.bash_profile`），这样就不需要每次都手动设置。
-
-如果您遇到权限问题，可能需要给 Makefile 添加执行权限：
-
-```bash
-chmod +x Makefile
 ```
