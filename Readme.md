@@ -14,24 +14,16 @@ Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 6.22ms (12.30ms CPU
 
 Ran 1 test for test/NFTswapIntegration.t.sol:NFTswapIntegrationTest
 [PASS] testFullFlow() (gas: 698294)
-Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 8.90ms (5.03ms CPU time)| src/NFTswap.sol:NFTswap contract |                 |        |        |        |
-     |
-|----------------------------------|-----------------|--------|--------|--------|---------|
-| Deployment Cost                  | Deployment Size |        |        |        |
-     |
-| 618040                           | 2647            |        |        |        |
-     |
-| Function Name                    | min             | avg    | median | max    | # calls |
-| list                             | 91462           | 105712 | 108562 | 108562 | 6
-     |
-| orders                           | 787             | 787    | 787    | 787    | 2
-     |
-| purchase                         | 24218           | 63754  | 66385  | 98030  | 4
-     |
-| revoke                           | 62230           | 62230  | 62230  | 62230  | 1
-     |
-| update                           | 24510           | 33058  | 37333  | 37333  | 3
-     |
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 8.90ms (5.03ms CPU time)| src/NFTswap.sol:NFTswap contract   |                 |        |        |        |       |
+|----------------------|-----------------|--------|--------|--------|-------|
+| Deployment Cost      | Deployment Size |        |        |        |       |
+| 618040               | 2647            |        |        |        |       |
+| Function Name        | min             | avg    | median | max    | #calls|
+| list                 | 91462           | 105712 | 108562 | 108562 | 6     |
+| orders               | 787             | 787    | 787    | 787    | 2     |
+| purchase             | 24218           | 63754  | 66385  | 98030  | 4     |
+| revoke               | 62230           | 62230  | 62230  | 62230  | 1     |
+| update               | 24510           | 33058  | 37333  | 37333  | 3     |
 
 
 | test/FLX.sol:FLX contract |                 |       |        |       |         |
